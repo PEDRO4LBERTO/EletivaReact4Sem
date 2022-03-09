@@ -5,17 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
 </head>
 <body>
     <p id = "nascimento"> 2002 </p>
     <p id = "ano_atual"> 2022 </p>
-
+    <div id ="resultado">
+    
+    </div>
     <script>
-        elNascimento = document.getElementById('nascimento')
-        alert(elNascimento.value)
+        const elNascimento = document.getElementById('nascimento').innerHTML
+        //alert(elNascimento)
+        const elAno_atual= document.getElementById('ano_atual').innerHTML
+        //alert(elAno_atual)
+        const elResultado = document.getElementById('resultado')
 
-        elAno_atual= document.getElementById('ano_atual')
-        alert(elAno_atual)
+        let idade_atual
+        let idade_futura
+        
+
+        function calcular(){
+            idade_atual =  elAno_atual - elNascimento 
+            idade_futura = (idade_atual + (2055 - elAno_atual)) // ou (2055- elNascimento)
+            elResultado.innerHTML = `Sua idade atual é: ${idade_atual} anos e em 2055 você terá: ${idade_futura} anos`
+            
+        }
+
+        calcular()
     </script>
 </body>
 </html>
