@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #resultado {
+            background-color: aqua;
+
+            text-align: center;
+            font-size: 20px;
+            width: 150px; /* Largura */
+            padding: 20px;      /* Espaçamento interno */
+            /* 4 valores no margin:
+                1º top (superior)
+                2º right (direita)
+                3º bottom (inferior)
+                4º left (esquerdo)
+                Começa de cima e segue o sentido horário
+                Quando temos auto à esquerda e à direita, o 
+                elemento fica centralizado na horizontal
+            */
+            margin: 30px auto 0 auto;   /* Espaçamento externo */
+            /* Valores do box-shadow:
+               1º deslocamento horizontal
+               2º deslocamento vertical
+               3º embaçamento da sombra
+               4º cor da sombra
+            */
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label> Quantidade de dinheiro que uma pessoa tem na carteira: </label>
+        <input type="text" class="campo" id="dinheiodisponivel">
+    </div>
+
+    <div>
+        <button id="calcular">Calcular</button>
+    </div>
+
+    <div id="resultado">
+        
+    </div>
+
+
+    <script>
+        const elDinheiro = document.querySelector('#dinheiodisponivel')
+        const elResultado = document.getElementById('resultado')
+        const elCalcular = document.getElementById('calcular')
+        let resultado
+        let reais
+
+        function calcular(){
+            reais = parseFloat(elDinheiro.value)
+            resultado = parseInt(reais * '0.197238659' ) //'0.1972386587771203' 
+            alert(`Você pode comprar ${resultado} dolars  com ${elDinheiro.value} reais`)
+            elResultado.textContent = `Você pode comprar ${resultado} dolars  com ${elDinheiro.value} reais`
+            //alert(`Você pode comprar ${resultado} com ${elDinheiro.value} dolars `)
+/*            if(elDinheiro.value === 5,07){
+                resultado = `Você pode comprar ${resultado} com ${elDinheiro} dolars `
+                //alert(`${resultado}`)
+                elResultado.textContent = resultado
+            }
+            else{
+                resultado = (elDinheiro.value *  0,1972386587771203);
+                //alert(`${resultado.value}`)
+                elResultado.textContent = resultado
+            } 
+*/
+            //alert(`${elDinheiro.value}`)
+           // elResultado.textContent = `Número do voo: ${elDinheiro.value}\n`
+        }
+
+
+        elCalcular.addEventListener('click', calcular)
+    </script>
+</body>
+</html>
